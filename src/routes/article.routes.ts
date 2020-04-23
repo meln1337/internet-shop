@@ -1,8 +1,12 @@
 import { Router, Request, Response } from 'express'
+import { QueryResult } from 'pg'
+import { pool } from '../database'
 import articles from '../articles.json'
 const router = Router()
 
-router.get('/articles', (req: Request, res: Response) => {
+router.get('/articles', async (req: Request, res: Response) => {
+    const response: QueryResult = await pool.query('SELECT * FROM articles')
+    console.log(response.rows)
     res.json(articles)
 })
 

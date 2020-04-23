@@ -5,7 +5,7 @@ export type ArticleProps = {
     price: number,
     discount: number,
     img: string,
-    categories: Array<string>,
+    categories: string[],
     timestamps: Date | number
 }
 

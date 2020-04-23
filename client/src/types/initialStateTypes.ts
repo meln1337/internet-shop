@@ -1,5 +1,5 @@
 import { ArticleProps } from './types'
 
-export interface ArticleInitialState {
+export type ArticleInitialState = {
     articles: ArticleProps[] | []
 }

@@ -15,6 +15,7 @@ const useRoutes: React.FC = () => (
                 <ArticlesContainer />
             </Route>
             <Route path="/articles/:id">
+                <Sidebar />
                 <FullArticleContainer />
             </Route>
         </Switch>

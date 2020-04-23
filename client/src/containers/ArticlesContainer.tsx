@@ -7,7 +7,7 @@ import { AppStateType } from '../redux/store'
 
 class ArticlesContainer extends React.Component<ArticlesContainerProps> {
     componentDidMount() {
-        if (this.props.articles.length === 0) {
+        if (this.props.articles.length < 2) {
             this.props.setArticles()
         }
     }
