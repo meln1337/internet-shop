@@ -1,0 +1,41 @@
+@import '~antd/dist/antd.css'
+    
+html, body
+    padding: 0
+    margin: 0
+    
+.grid
+    display: grid
+    grid-template-columns: 1fr 300px 920px 1fr
+    grid-template-areas: ". header header ." ". sidebar main ." ". footer footer ."
+
+.header
+    grid-area: header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 30px
+
+.main
+    grid-area: main
+
+.sidebar
+    grid-area: sidebar
+
+.footer
+    grid-area: footer
+
+.articles
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+.search
+    width: 400px
+
+.article
+    width: 200px
+    margin-right: 30px
+    margin-bottom: 30px
+    img
+        padding: 5px

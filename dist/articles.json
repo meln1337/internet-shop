@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "name": "headphones",
+        "description": "this is the description",
+        "price": 20,
+        "discount": 0,
+        "img": "https://i1.rozetka.ua/goods/10462237/panasonic_rp_hje125e_k_images_10462237970.jpg",
+        "categories": [
+            "headphones"
+        ],
+        "timestamps": 1587568082664
+    },
+    {
+        "id": "2",
+        "name": "headphones",
+        "description": "this is the description",
+        "price": 20,
+        "discount": 0,
+        "img": "https://i1.rozetka.ua/goods/10462237/panasonic_rp_hje125e_k_images_10462237970.jpg",
+        "categories": [
+            "headphones"
+        ],
+        "timestamps": 1587568082664
+    },
+    {
+        "id": "3",
+        "name": "headphones",
+        "description": "this is the description",
+        "price": 20,
+        "discount": 0,
+        "img": "https://i1.rozetka.ua/goods/10462237/panasonic_rp_hje125e_k_images_10462237970.jpg",
+        "categories": [
+            "headphones"
+        ],
+        "timestamps": 1587568082664
+    },
+    {
+        "id": "4",
+        "name": "headphones",
+        "description": "this is the description",
+        "price": 20,
+        "discount": 0,
+        "img": "https://i1.rozetka.ua/goods/10462237/panasonic_rp_hje125e_k_images_10462237970.jpg",
+        "categories": [
+            "headphones"
+        ],
+        "timestamps": 1587568082664
+    },
+    {
+        "id": "5",
+        "name": "headphones",
+        "description": "this is the description",
+        "price": 20,
+        "discount": 0,
+        "img": "https://i1.rozetka.ua/goods/10462237/panasonic_rp_hje125e_k_images_10462237970.jpg",
+        "categories": [
+            "headphones"
+        ],
+        "timestamps": 1587568082664
+    }
+]
