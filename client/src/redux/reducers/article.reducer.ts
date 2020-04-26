@@ -1,16 +1,20 @@
+import { TArticle } from '../../types/types'
+import { ArticleInitialState } from '../../types/ISTypes'
+import { TArticleActions } from '../actions/article.actions'
 import { SET_ARTICLES, SET_ARTICLE } from '../types'
-import { ArticleInitialState } from '../../types/initialStateTypes'
 
 const initialState: ArticleInitialState = {
-    articles: []
+    articles: [] as TArticle[] | []
 }
 
-const articleReducer = (state = initialState, action: any) => {
+type TInitialState = typeof initialState
+
+const articleReducer = (state = initialState, action: TArticleActions): TInitialState => {
     switch(action.type) {
         case SET_ARTICLES: {
             return {
                 ...state,
-                articles: action.payload
+                articles: action.articles
             }
         }
         case SET_ARTICLE: {
@@ -18,7 +22,7 @@ const articleReducer = (state = initialState, action: any) => {
                 ...state,
                 articles: [
                     ...state.articles,
-                    action.payload
+                    action.article
                 ]
             }
         }

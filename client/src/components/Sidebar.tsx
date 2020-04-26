@@ -1,13 +1,13 @@
-import React from 'react';
-import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Menu } from 'antd'
+import { Link, withRouter } from 'react-router-dom'
+import { TSidebar } from '../types/types'
 
 const { SubMenu } = Menu
 
-const Sidebar: React.FC = () => (
+const Sidebar: React.FC<TSidebar> = ({ match }) => (
     <aside className="sidebar">
         <Menu
-            style={{ width: 256 }}
             mode="inline"
         >
             <SubMenu
@@ -15,15 +15,13 @@ const Sidebar: React.FC = () => (
                 title={
                     <span>Electronic devices</span>
                 }
+                className={match.params.subcategory === 'electronic-devices' ? 'ant-menu-submenu-open ant-menu-submenu-active' : ''}
             >
-                <Menu.ItemGroup key="g1" title="Item 1">
-                    <Menu.Item key="1">Option 1</Menu.Item>
-                    <Menu.Item key="2">Option 2</Menu.Item>
-                </Menu.ItemGroup>
-                <Menu.ItemGroup key="g2" title="Item 2">
-                    <Menu.Item key="3">Option 3</Menu.Item>
-                    <Menu.Item key="4">Option 4</Menu.Item>
-                </Menu.ItemGroup>
+                <Menu.Item key="1" className={match.params.category === 'headphones' ? 'ant-menu-item-selected': ''}><Link to="/category/electronic-devices/headphones">Headphones</Link></Menu.Item>
+                <Menu.Item key="2">Option 2</Menu.Item>
+                <Menu.Item key="3">Option 3</Menu.Item>
+                <Menu.Item key="4">Option 4</Menu.Item>
+                
             </SubMenu>
             <SubMenu
                 key="sub2"
@@ -49,8 +47,19 @@ const Sidebar: React.FC = () => (
                 <Menu.Item key="11">Option 11</Menu.Item>
                 <Menu.Item key="12">Option 12</Menu.Item>
             </SubMenu>
+            <SubMenu
+                key="sub5"
+                title={
+                    <span>Smartphones</span>
+                }
+            >
+                <Menu.Item key="9">Option 13</Menu.Item>
+                <Menu.Item key="10">Option 14</Menu.Item>
+                <Menu.Item key="11">Option 15</Menu.Item>
+                <Menu.Item key="12">Option 16</Menu.Item>
+            </SubMenu>
         </Menu>
     </aside>
 )
 
-export default Sidebar;
+export default withRouter(Sidebar)

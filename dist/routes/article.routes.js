@@ -35,29 +35,50 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var database_1 = require("../database");
-var articles_json_1 = __importDefault(require("../articles.json"));
 var router = express_1.Router();
 router.get('/articles', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var response;
+    var articles;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, database_1.pool.query('SELECT * FROM articles')];
             case 1:
-                response = _a.sent();
-                console.log(response.rows);
-                res.json(articles_json_1.default);
+                articles = _a.sent();
+                res.json(articles.rows);
                 return [2 /*return*/];
         }
     });
 }); });
-router.get('/articles/:id', function (req, res) {
-    var article = articles_json_1.default.find(function (article) { return article.id === req.params.id; });
-    res.json(article);
-});
+router.get('/articles/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var article;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, database_1.pool.query("SELECT * FROM articles WHERE id = " + req.params.id)];
+            case 1:
+                article = _a.sent();
+                if (!article.rows[0]) {
+                    return [2 /*return*/, res.status(404).json('We didn\'t find the article')];
+                }
+                res.json(article.rows[0]);
+                return [2 /*return*/];
+        }
+    });
+}); });
+router.get('/category/:category', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var article;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, database_1.pool.query("SELECT * FROM articles WHERE '" + req.params.category + "' = ANY (categories)")];
+            case 1:
+                article = _a.sent();
+                res.json({
+                    articles: article.rows,
+                    category: req.params.category
+                });
+                return [2 /*return*/];
+        }
+    });
+}); });
 exports.default = router;

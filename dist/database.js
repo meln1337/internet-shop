@@ -5,6 +5,6 @@ exports.pool = new pg_1.Pool({
     user: 'postgres',
     host: 'localhost',
     password: 'spykespyke',
-    database: 'internetshop',
+    database: 'internetstore',
     port: 8080
 });

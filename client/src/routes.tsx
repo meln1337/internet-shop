@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
 import FullArticleContainer from './containers/FullArticleContainer'
 import ArticlesContainer from './containers/ArticlesContainer'
+import ArticlesByCategoryContainer from './containers/ArticlesByCategoryContainer'
 
 const useRoutes: React.FC = () => (
     <Router>
@@ -17,6 +18,10 @@ const useRoutes: React.FC = () => (
             <Route path="/articles/:id">
                 <Sidebar />
                 <FullArticleContainer />
+            </Route>
+            <Route path="/category/:subcategory/:category">
+                <Sidebar />
+                <ArticlesByCategoryContainer />
             </Route>
         </Switch>
         <Footer />   

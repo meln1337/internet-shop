@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
-import { ArticleProps } from '../types/types'
+import { TArticle } from '../types/types'
 
 const { Meta } = Card
 
-const Article: React.FC<ArticleProps> = ({ name, description, price, discount, img, categories, timestamps, id }) => (
+const Article: React.FC<TArticle> = ({ name, description, price, discount, img, categories, timestamps, id }) => (
     <Card
         cover={
             <img

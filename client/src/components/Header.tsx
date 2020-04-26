@@ -1,19 +1,15 @@
 import React from 'react'
 import { Menu, Input } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
+import { withRouter, Link } from 'react-router-dom'
+import { THeader } from '../types/types'
 
-const { SubMenu } = Menu
 const { Search } = Input
 
-const Header: React.FC = () => (
+const Header: React.FC<THeader> = ({ location }) => (
     <header className="header">
         <Menu mode="horizontal">
-            <SubMenu
-                title="Articles"
-            >
-                <Menu.Item key="setting:1">First</Menu.Item>
-                <Menu.Item key="setting:2">Second</Menu.Item>
-            </SubMenu>
+            <Menu.Item key="store" className={location.pathname === '/' ? 'ant-menu-item-active ant-menu-item-selected' : ''}><Link to="/">Store</Link></Menu.Item>
         </Menu>
         <Search
             placeholder="type name of the article"
@@ -29,4 +25,4 @@ const Header: React.FC = () => (
     </header>
 )
 
-export default Header;
+export default withRouter(Header);

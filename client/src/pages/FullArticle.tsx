@@ -1,10 +1,10 @@
 import React from 'react'
-import { ArticleProps } from '../types/types'
+import { TArticle } from '../types/types'
 import { PageHeader, Descriptions, Typography } from 'antd'
 
 const { Paragraph } = Typography
 
-const FullArticle: React.FC<ArticleProps> = ({ name, description, price, discount, img, categories, timestamps, id }) => (
+const FullArticle: React.FC<TArticle> = ({ name, description, price, discount, img, categories, timestamps, id }) => (
     <main className="main">
         <PageHeader
             ghost={false}
@@ -17,6 +17,7 @@ const FullArticle: React.FC<ArticleProps> = ({ name, description, price, discoun
             <div style={{ display: 'flex', justifyContent: 'center', margin: '30px 0' }}>
                 <img src={img} alt="example" style={{ width: 200 }} />
             </div>
+            <Paragraph>{discount ? (price - discount) : price} $</Paragraph>
             <Paragraph>{description}</Paragraph>
         </PageHeader>
     </main>

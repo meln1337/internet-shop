@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Articles from '../components/Articles'
-import { setArticlesThunk } from '../redux/actions'
-import { ArticlesContainerProps, ArticlesContainerMSTP, ArticlesContainerMDTP } from '../types/ArticlesContainerTypes'
-import { AppStateType } from '../redux/store'
+import { setArticlesThunk } from '../redux/actions/article.actions'
+import { ArticlesContainerProps, ArticlesContainerMSTP, ArticlesContainerMDTP } from '../types/types'
+import { TAppState } from '../redux/store'
 
 class ArticlesContainer extends React.Component<ArticlesContainerProps> {
     componentDidMount() {
@@ -20,7 +20,7 @@ class ArticlesContainer extends React.Component<ArticlesContainerProps> {
     }
 }
 
-const mapStateToProps = (state: AppStateType): ArticlesContainerMSTP => ({
+const mapStateToProps = (state: TAppState): ArticlesContainerMSTP => ({
     articles: state.articleReducer.articles
 })
 

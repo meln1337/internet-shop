@@ -4,6 +4,6 @@ export const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     password: 'spykespyke',
-    database: 'internetshop',
+    database: 'internetstore',
     port: 8080
 })
