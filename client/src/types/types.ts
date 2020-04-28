@@ -1,3 +1,11 @@
+export type TApp = {
+    setCart: () => void
+}
+
+export type TAppMDTP = {
+    setCart: () => void
+}
+
 export type TArticle = {
     id: string,
     name: string,
@@ -14,7 +22,17 @@ export type ArticlesProps = {
 }
 
 export type THeader = {
-    location: any
+    articlesCount: number,
+    location: any,
+    setOpenCart: () => void
+}
+
+export type THeaderMSTP = {
+    articlesCount: number
+}
+
+export type THeaderMDTP = {
+    setOpenCart: () => void
 }
 
 export type TSidebar = {
@@ -60,6 +78,7 @@ export type FullArticleContainerProps = {
     match: any,
     staticContext: any,
     setArticle: (id: string) => any,
+    addToCart: (article: TArticle) => any,
     id: string
 }
 
@@ -69,5 +88,55 @@ export type FullArticleContainerMSTP = {
 }
 
 export type FullArticleContainerMDTP = {
-    setArticle: (id: string) => any
+    setArticle: (id: string) => any,
+    addToCart: (article: TArticle) => any
+}
+
+export type TCart = {
+    articles: any
+    open: boolean,
+    setLockCart: () => void,
+    addToCart: (article: TArticle) => void,
+    minusFromCart: (article: TArticle) => void,
+    deleteFromCart: (article: TArticle) => void
+}
+
+export type TCartMSTP = {
+    articles: {}
+    open: boolean
+}
+
+export type TCartMDTP = {
+    setLockCart: () => void
+    addToCart: (article: TArticle) => void,
+    minusFromCart: (article: TArticle) => void,
+    deleteFromCart: (article: TArticle) => void
+}
+
+export type TFullArticle = {
+    id: string,
+    name: string,
+    description: string,
+    price: number,
+    discount: number,
+    img: string,
+    categories: string[],
+    timestamps: Date | number,
+    addToCart: (article: TArticle) => any
+}
+
+export type TCartArticle = {
+    id: string,
+    name: string,
+    description: string,
+    price: number,
+    discount: number,
+    img: string,
+    categories: string[],
+    timestamps: number | Date,
+    count: number,
+    addToCart: (article: TArticle) => any,
+    minusFromCart: (articles: TArticle) => any,
+    deleteFromCart: (article: TArticle) => void,
+    setLockCart: () => void
 }

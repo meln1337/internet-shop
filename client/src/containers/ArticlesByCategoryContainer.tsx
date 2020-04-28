@@ -14,7 +14,7 @@ class ArticlesByCategoryContainer extends React.Component<TArticlesByCategoryCon
     }
 
     componentDidUpdate(prevProps: TArticlesByCategoryContainer) {
-        if (prevProps.category !== this.props.category && this.props.articles) {
+        if (prevProps.category !== this.props.category && !this.props.articles) {
             this.props.setArticlesByCategory(this.props.category)
         }
     }

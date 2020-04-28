@@ -13,5 +13,6 @@ export type ISArticle = {
 }
 
 export type ISCart = {
-    articles: TArticle[] | []
+    articles: any,
+    open: boolean
 }

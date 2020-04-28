@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useRoutes from './routes'
+import { connect } from 'react-redux'
+import { TApp } from './types/types'
+import { setCartThunk } from './redux/actions/cart.actions'
 
 const routes = useRoutes({})
 
-const App: React.FC = () => (
-	<div className="grid">
-		{routes}
-	</div>
-)
+const App: React.FC<TApp> = ({ setCart }) => {
+	useEffect(() => {
+		setCart()
+	}, [])
 
-export default App
+	return (
+		<div className="grid">
+			{routes}
+		</div>
+	)
+}
+
+const mapDispatchToProps = {
+	setCart: () => setCartThunk()
+}
+
+export default connect(null, mapDispatchToProps)(App)

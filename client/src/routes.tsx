@@ -6,10 +6,12 @@ import Sidebar from './components/Sidebar'
 import FullArticleContainer from './containers/FullArticleContainer'
 import ArticlesContainer from './containers/ArticlesContainer'
 import ArticlesByCategoryContainer from './containers/ArticlesByCategoryContainer'
+import Cart from './components/Cart'
 
 const useRoutes: React.FC = () => (
     <Router>
         <Header />
+        <Cart />
         <Switch>
             <Route exact path="/">
                 <Sidebar />
@@ -24,7 +26,6 @@ const useRoutes: React.FC = () => (
                 <ArticlesByCategoryContainer />
             </Route>
         </Switch>
-        <Footer />   
     </Router>
 )
 

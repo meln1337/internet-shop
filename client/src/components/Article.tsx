@@ -11,6 +11,7 @@ const Article: React.FC<TArticle> = ({ name, description, price, discount, img, 
             <img
                 alt="example"
                 src={img}
+                height={200}
             />
         }
         actions={[
